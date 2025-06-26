@@ -1,0 +1,30 @@
+name: Build ExtremeKernel x1slte with KernelSU
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Kernel Source
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Setup Build Environment
+      run: |
+        sudo apt update
+        sudo apt install -y build-essential git flex bison bc libssl-dev libelf-dev ccache curl wget python3 python-is-python3 zip unzip libncurses5 libncurses5-dev libncursesw5-dev
+
+    - name: Start Kernel Build
+      run: |
+        chmod +x build.sh
+        ./build.sh -m x1slte -k y -c n
+
+    - name: Upload Kernel Zip
+      uses: actions/upload-artifact@v4
+      with:
+        name: ExtremeKernel-x1slte-KernelSU
+        path: build/out/x1slte/*.zip
