@@ -24,7 +24,7 @@ jobs:
         chmod +x build.sh
         ./build.sh -m c2slte -k y -c n
 
-    - name: Upload BennlyKernel Zip
+    - name: Upload BenlyKernel Zip
       uses: actions/upload-artifact@v4
       with:
         name: BennlyKernel-c2slte-KernelSU
