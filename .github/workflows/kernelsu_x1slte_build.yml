@@ -1,4 +1,4 @@
-name: Build ExtremeKernel x1slte with KernelSU
+name: Build BennlyKernel with KernelSU
 
 on:
   workflow_dispatch:
@@ -21,10 +21,10 @@ jobs:
     - name: Start Kernel Build
       run: |
         chmod +x build.sh
-        ./build.sh -m x1slte -k y -c n
+        ./build.sh -m c2slte -k y -c n
 
-    - name: Upload Kernel Zip
+    - name: Upload BennlyKernel Zip
       uses: actions/upload-artifact@v4
       with:
-        name: ExtremeKernel-x1slte-KernelSU
+        name: BennlyKernel-c2slte-KernelSU
         path: build/out/x1slte/*.zip
