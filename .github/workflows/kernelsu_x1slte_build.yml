@@ -1,4 +1,4 @@
-name: Build BennlyKernel with KernelSU
+name: Build BenlyKernel with KernelSU
 
 on:
   workflow_dispatch:
